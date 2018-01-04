@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="java中有以下三种方式可以终止正在运行的线程    使用退出标志，是线程正常退出，也就是当run方法完成后线程终止。   使用stop方法强制终止线程，但是不推荐使用这个方法，因为stop和suspend及resume一样，都是作废过期的方法，使用它们可能产生不可预料的结果。   使用interrupt方法中断线程">
+<meta name="description" content="java中有以下三种方式可以终止正在运行的线程    使用退出标志，是线程正常退出，也就是当run方法完成后线程终止。   使用stop方法强制终止线程，但是不推荐使用这个方法，因为stop和suspend及resume一样，都是作废过期的方法，使用它们可能产生不可预料的结果。   使用interrupt方法中断线程    停止不了的线程interrupt()方法并不会立刻停止线程，仅仅是在当前">
 <meta name="keywords" content="线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何关闭一个线程">
 <meta property="og:url" content="http://yoursite.com/2018/01/04/如何关闭一个线程/index.html">
 <meta property="og:site_name" content="树袋熊的技术分享">
-<meta property="og:description" content="java中有以下三种方式可以终止正在运行的线程    使用退出标志，是线程正常退出，也就是当run方法完成后线程终止。   使用stop方法强制终止线程，但是不推荐使用这个方法，因为stop和suspend及resume一样，都是作废过期的方法，使用它们可能产生不可预料的结果。   使用interrupt方法中断线程">
+<meta property="og:description" content="java中有以下三种方式可以终止正在运行的线程    使用退出标志，是线程正常退出，也就是当run方法完成后线程终止。   使用stop方法强制终止线程，但是不推荐使用这个方法，因为stop和suspend及resume一样，都是作废过期的方法，使用它们可能产生不可预料的结果。   使用interrupt方法中断线程    停止不了的线程interrupt()方法并不会立刻停止线程，仅仅是在当前">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-04T06:39:33.917Z">
+<meta property="og:updated_time" content="2018-01-04T06:56:17.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何关闭一个线程">
-<meta name="twitter:description" content="java中有以下三种方式可以终止正在运行的线程    使用退出标志，是线程正常退出，也就是当run方法完成后线程终止。   使用stop方法强制终止线程，但是不推荐使用这个方法，因为stop和suspend及resume一样，都是作废过期的方法，使用它们可能产生不可预料的结果。   使用interrupt方法中断线程">
+<meta name="twitter:description" content="java中有以下三种方式可以终止正在运行的线程    使用退出标志，是线程正常退出，也就是当run方法完成后线程终止。   使用stop方法强制终止线程，但是不推荐使用这个方法，因为stop和suspend及resume一样，都是作废过期的方法，使用它们可能产生不可预料的结果。   使用interrupt方法中断线程    停止不了的线程interrupt()方法并不会立刻停止线程，仅仅是在当前">
 
 
 
@@ -318,6 +318,11 @@
 <li>使用stop方法强制终止线程，但是不推荐使用这个方法，因为stop和suspend及resume一样，都是作废过期的方法，使用它们可能产生不可预料的结果。  </li>
 <li>使用interrupt方法中断线程  </li>
 </ol>
+<h3 id="停止不了的线程"><a href="#停止不了的线程" class="headerlink" title="停止不了的线程"></a>停止不了的线程</h3><p>interrupt()方法并不会立刻停止线程，仅仅是在当前线程中打了一个停止的标记，并不是真的停止线程。</p>
+<h3 id="判断线程是否是停止状态"><a href="#判断线程是否是停止状态" class="headerlink" title="判断线程是否是停止状态"></a>判断线程是否是停止状态</h3><ol>
+<li>this.interrupted(): 静态方法，测试当前线程是否已经中断，并清除线程的中断状态，如果连续两次调用该方法，那么第二次调用将返回false。  </li>
+<li>this.isInterrupted(): 非静态方法，测试当前线程是否已经中断，但不清除线程的中断状态。调用两次都会返回true。</li>
+</ol>
 
       
     </div>
@@ -408,8 +413,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -464,6 +478,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#停止不了的线程"><span class="nav-number">1.</span> <span class="nav-text">停止不了的线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断线程是否是停止状态"><span class="nav-number">2.</span> <span class="nav-text">判断线程是否是停止状态</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
