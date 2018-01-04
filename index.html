@@ -313,21 +313,18 @@
 
       
         
-          
-            <a id="more"></a>
-<p>java中有以下三种方式可以终止正在运行的线程  </p>
+          <p>java中有以下三种方式可以终止正在运行的线程  </p>
 <ol>
 <li>使用退出标志，是线程正常退出，也就是当run方法完成后线程终止。  </li>
 <li>使用stop方法强制终止线程，但是不推荐使用这个方法，因为stop和suspend及resume一样，都是作废过期的方法，使用它们可能产生不可预料的结果。  </li>
-<li>使用interrupt方法中断线程  </li>
-</ol>
-<h3 id="停止不了的线程"><a href="#停止不了的线程" class="headerlink" title="停止不了的线程"></a>停止不了的线程</h3><p>interrupt()方法并不会立刻停止线程，仅仅是在当前线程中打了一个停止的标记，并不是真的停止线程。</p>
-<h3 id="判断线程是否是停止状态"><a href="#判断线程是否是停止状态" class="headerlink" title="判断线程是否是停止状态"></a>判断线程是否是停止状态</h3><ol>
-<li>this.interrupted(): 静态方法，测试当前线程是否已经中断，并清除线程的中断状态，如果连续两次调用该方法，那么第二次调用将返回false。  </li>
-<li>this.isInterrupted(): 非静态方法，测试当前线程是否已经中断，但不清除线程的中断状态。调用两次都会返回true。</li>
-</ol>
-
-          
+<li>使用interrupt方法中断线程
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/04/如何关闭一个线程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
